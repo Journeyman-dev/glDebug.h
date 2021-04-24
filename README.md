@@ -2,10 +2,10 @@
 _MIT Licensed OpenGL Debuging Library_
 
 This is a header only library. You need to do this in a cpp file somewhere in your project (only once)
-	to implment the library:
+to implment the library:
 		
-		#define GLD_IMPLEMENTATION
-		#include <gld/glDebug.h>
+	#define GLD_IMPLEMENTATION
+	#include <gld/glDebug.h>
 		
 glDebug is useful for producing verbose debug messages for OpenGL. Unlike the debug callback system, 
 glDebug works with OpenGL versions older than 4.3. Also, glDebug works on the same thread as your OpenGL 
