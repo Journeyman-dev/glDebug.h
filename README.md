@@ -2,7 +2,8 @@
 _MIT Licensed OpenGL Debuging Library_
 
 This is a header only library. You need to do this in a cpp file somewhere in your project (only once)
-	to implment the library.
+	to implment the library:
+		
 		#define GLD_IMPLEMENTATION
 		#include <gld/glDebug.h>
 		
