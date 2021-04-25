@@ -120,6 +120,16 @@ void glDebug_ClearErrors()
 	while (glGetError() != GL_NO_ERROR);
 }
 
+#define GL_INVALID_ENUM 0x0500
+#define GL_INVALID_VALUE 0x0501
+#define GL_INVALID_OPERATION 0x0502
+#define GL_STACK_OVERFLOW 0x0503
+#define GL_STACK_UNDERFLOW 0x0504
+#define GL_OUT_OF_MEMORY 0x0505
+#define GL_INVALID_FRAMEBUFFER_OPERATION 0x0506
+#define GL_CONTEXT_LOST 0x0507
+#define GL_TABLE_TOO_LARGE 0x8031
+
 void glDebug_ErrorCheck(const char* glFunc)
 {
 	if (!sGL_DEBUG_CALLBACK)
@@ -132,30 +142,30 @@ void glDebug_ErrorCheck(const char* glFunc)
 	{
 	case GL_NO_ERROR:
 		break;
-	//case GL_INVALID_ENUN:
-	//	sGL_DEBUG_CALLBACK("glError: GL_INVALID_ENUM", glFunc);
-	//	break;
+	case GL_INVALID_ENUM:
+		sGL_DEBUG_CALLBACK("glError: GL_INVALID_ENUM", glFunc);
+		break;
 	case GL_INVALID_VALUE:
 		sGL_DEBUG_CALLBACK("glError: GL_INVALID_VALUE", glFunc);
 		break;
 	case GL_INVALID_OPERATION:
 		sGL_DEBUG_CALLBACK("glError: GL_INVALID_OPERATION", glFunc);
 		break;
-	//case GL_STACK_OVERFLOW:
-	//	sGL_DEBUG_CALLBACK("glError: GL_STACK_OVERFLOW", glFunc);
-	//	break;
+	case GL_STACK_OVERFLOW:
+		sGL_DEBUG_CALLBACK("glError: GL_STACK_OVERFLOW", glFunc);
+		break;
 	case GL_OUT_OF_MEMORY:
 		sGL_DEBUG_CALLBACK("glError: GL_OUT_OF_MEMORY", glFunc);
 		break;
 	case GL_INVALID_FRAMEBUFFER_OPERATION:
 		sGL_DEBUG_CALLBACK("glError: GL_INVALID_FRAMEBUFFER_OPERATION", glFunc);
 		break;
-	//case GL_CONTEXT_LOST:
-	//	sGL_DEBUG_CALLBACK("glError: GL_CONTEXT_LOST", glFunc);
-	//	break;
-	//case GL_TABLE_TOO_LARGE:
-	//	sGL_DEBUG_CALLBACK("glError: GL_TABLE_TOO_LARGE", glFunc);
-	//	break;
+	case GL_CONTEXT_LOST:
+		sGL_DEBUG_CALLBACK("glError: GL_CONTEXT_LOST", glFunc);
+		break;
+	case GL_TABLE_TOO_LARGE:
+		sGL_DEBUG_CALLBACK("glError: GL_TABLE_TOO_LARGE", glFunc);
+		break;
 	default:
 		sGL_DEBUG_CALLBACK("glError: unknown", glFunc);
 		break;
