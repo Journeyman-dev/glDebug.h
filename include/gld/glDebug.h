@@ -24,8 +24,8 @@ SOFTWARE.
 
 /* glDebug.h - MIT Licensed OpenGL Debuging Library
 		
-	This is a header only library. You need to do this in a cpp file somewhere in your project (only once)
-	to implment the library:
+	This is a header only library. You need to do this in a c or cpp file somewhere in your project (only once)
+	to implement the library:
 			
 		#define GLD_IMPLEMENTATION
 		#include <gld/glDebug.h>
@@ -46,9 +46,9 @@ SOFTWARE.
 		
 	You are meant to write glDebug.h macros in your code like	they are functions with semicolons following them. 
 	I have found this helpful when using the library in certain IDEs like Visual Studio, where if you don't use 
-	semicolons the editor will try to unindent every macro call, making the code hard/annoying to keep tidy.
+	semicolons the editor will try to unintended every macro call, making the code hard/annoying to keep tidy.
 		
-	glDebug.h has 5 macros that provide debbugging functionality:
+	glDebug.h has 5 macros that provide debugging functionality:
 	 - GLD_CLEAR() - Call this macro once at the top of every block of OpenGL functions you
 	  wish to debug. This function clears all OpenGL errors that are already enqueued in 
 	  the state machine. If you don't call this first before using other error checking 
@@ -57,7 +57,7 @@ SOFTWARE.
 	  other debug macros in this library. Pass in a pointer to a function (a function pointer) that
 	  returns void and takes in two const char* arguments. In this function you are meant to write
 	  code you want to execute whenever an error occurs. The first argument is the type of error in 
-	  textual form, and the second argument is a stringified version of the entire line where the error occured.
+	  textual form, and the second argument is a stringified version of the entire line where the error occurred.
 	 - GLD_CALL(glFunc) - Pass in entire programming statments into this macro (without the semicolon)
 	  to test any OpenGL calls in it for errors. You are meant to pass in entire statements, including 
 	  both the rvalue and lvalue, but not the semicolon (though you should still add a semicolon after the macro).
@@ -67,7 +67,6 @@ SOFTWARE.
 	  and then check for compile errors.
 	 - GLD_LINK(programHandleVar) - Instead of calling glLinkProgram(), call this to link and
 	  then check for linking errors.
-
 */
 
 #ifdef __cplusplus //extern C guard
